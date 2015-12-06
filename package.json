@@ -1,0 +1,49 @@
+{
+  "name": "jsreport-electron-pdf",
+  "version": "",
+  "description": "jsreport recipe which renders pdf from html using electron",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "babel src --out-dir lib",
+    "optimize": "node node_modules/jsreport-express/tools/optimize.js",
+    "lint": "eslint src test",
+    "install-electron-prebuilt": "npm install electron-prebuilt@0.35.x",
+    "pretest": "npm-run-all build",
+    "test": "mocha test/test.js --timeout 7000",
+    "prepublish": "npm-run-all lint clean optimize build"
+  },
+  "author": {
+    "name": "BJR Matos",
+    "email": "bjrmatos@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jsreport",
+    "electron",
+    "pdf"
+  ],
+  "homepage": "https://github.com/bjrmatos/jsreport-electron-pdf",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bjrmatos/jsreport-electron-pdf.git"
+  },
+  "dependencies": {
+    "bluebird": "3.0.6",
+    "electron-html-to": "1.0.2",
+    "stream-to-array": "2.2.0"
+  },
+  "devDependencies": {
+    "babel": "5.8.34",
+    "eslint": "1.10.3",
+    "eslint-config-airbnb": "2.0.0",
+    "jsreport-core": "*",
+    "jsreport-express": "*",
+    "jsreport-templates": "*",
+    "mocha": "2.3.4",
+    "npm-run-all": "1.2.13",
+    "requirejs": "2.1.22",
+    "rimraf": "2.4.4",
+    "should": "7.1.1"
+  }
+}

@@ -1,0 +1,61 @@
+
+<div>
+  <div>
+      <small class="side-title">Margin Type</small>
+      <div class="btn-group dropdown" data-binding="marginsType">
+          <button class="btn btn-xs dropdown-button" data-value="{{:marginsType}}">{{:marginsType}}</button>
+          <button class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu pull-right">
+              <li><a data-value="A4">A4</a></li>
+              <li><a data-value="A3">A3</a></li>
+              <li><a data-value="Legal">Legal</a></li>
+              <li><a data-value="Letter">Letter</a></li>
+              <li><a data-value="Tabloid">Tabloid</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div>
+      <small class="side-title">Paper Format</small>
+      <div class="btn-group dropdown" data-binding="format">
+          <button class="btn btn-xs dropdown-button" data-value="{{:format}}">{{:format}}</button>
+          <button class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu pull-right">
+              <li><a data-value="A4">A4</a></li>
+              <li><a data-value="A3">A3</a></li>
+              <li><a data-value="Legal">Legal</a></li>
+              <li><a data-value="Letter">Letter</a></li>
+              <li><a data-value="Tabloid">Tabloid</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div>
+      <small class="side-title">Web Page width</small>
+      <input type="text" class="form-control area-mini" placeholder="600" name="width" value="{{:width}}">
+  </div>
+
+  <div>
+      <small class="side-title">Web Page height</small>
+      <input type="text" class="form-control area-mini" placeholder="600" name="height" value="{{:height}}">
+  </div>
+
+  <div>
+      <small class="side-title">Orientation</small>
+
+      <div class="btn-group dropdown" data-binding="landscape">
+          <button class="btn btn-xs dropdown-button" data-value="{{:landscape}}">{{:landscape}}</button>
+          <button class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu pull-right">
+              <li><a data-value="false">portrait</a></li>
+              <li><a data-value="true">landscape</a></li>
+          </ul>
+      </div>
+  </div>
+</div>
