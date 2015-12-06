@@ -60,7 +60,7 @@ define(['app', 'core/basicModel', 'underscore'], function(app, ModelBase, _) {
     isDirty: function() {
       return String(this.get('marginsType')) !== '0' || this.get('width') != null || this.get('height') != null ||
           String(this.get('printBackground')) !== 'true' || String(this.get('landscape')) !== 'false' || this.get('format') !== 'A4' ||
-          this.get('printDelay');
+          this.get('waitForJS') != null || this.get('printDelay') != null || this.get('blockJavaScript');
     },
 
     apiOverride: function(req) {
@@ -91,6 +91,10 @@ define(['app', 'core/basicModel', 'underscore'], function(app, ModelBase, _) {
 
       if (this.get('waitForJS') != null) {
         electronApi.waitForJS = parseBoolean(this.get('waitForJS'), false);
+      }
+
+      if (this.get('blockJavaScript') != null) {
+        electronApi.blockJavaScript = parseBoolean(this.get('blockJavaScript'), false);
       }
 
       req.template.electron = electronApi;
