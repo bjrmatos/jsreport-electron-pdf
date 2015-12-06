@@ -1,5 +1,6 @@
 
 import Promises from 'bluebird';
+import pick from 'lodash.pick';
 import electronConvert from 'electron-html-to';
 import recipe from './recipe';
 
@@ -8,8 +9,21 @@ class Electron {
     let {
       strategy,
       numberOfWorkers,
-      timeout
+      timeout,
+      tmpDir
     } = definition.options;
+
+    let convertOptions = {
+      strategy,
+      numberOfWorkers,
+      timeout,
+      tmpDir
+    };
+
+    // filter undefined options
+    convertOptions = pick(convertOptions, (val) => {
+      return val !== undefined;
+    });
 
     this.reporter = reporter;
 
@@ -42,9 +56,7 @@ class Electron {
 
     if (!reporter.__electron_html_to__) {
       reporter.__electron_html_to__ = Promises.promisify(electronConvert({
-        strategy,
-        numberOfWorkers,
-        timeout,
+        ...convertOptions,
         allowLocalFilesAccess: definition.options.hasOwnProperty('allowLocalFilesAccess') ? definition.options.allowLocalFilesAccess : false
       }));
     }
