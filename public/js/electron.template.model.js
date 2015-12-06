@@ -36,10 +36,12 @@ define(['app', 'core/basicModel', 'underscore'], function(app, ModelBase, _) {
 
       if (this.get('marginsType') == null) {
         this.set('marginsType', 0);
+        this.set('marginsTypeText', 'Default');
       }
 
       if (this.get('landscape') == null) {
         this.set('landscape', false);
+        this.set('orientationText', 'portrait');
       }
 
       if (this.get('format') == null) {
