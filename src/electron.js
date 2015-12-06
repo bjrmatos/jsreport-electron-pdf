@@ -5,6 +5,12 @@ import recipe from './recipe';
 
 class Electron {
   constructor(reporter, definition) {
+    let {
+      strategy,
+      numberOfWorkers,
+      timeout
+    } = definition.options;
+
     this.reporter = reporter;
 
     reporter.extensionsManager.recipes.push({
@@ -36,7 +42,9 @@ class Electron {
 
     if (!reporter.__electron_html_to__) {
       reporter.__electron_html_to__ = Promises.promisify(electronConvert({
-        ...definition.options,
+        strategy,
+        numberOfWorkers,
+        timeout,
         allowLocalFilesAccess: definition.options.hasOwnProperty('allowLocalFilesAccess') ? definition.options.allowLocalFilesAccess : false
       }));
     }
