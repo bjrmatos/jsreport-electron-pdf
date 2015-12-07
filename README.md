@@ -5,6 +5,8 @@
 
 > **jsreport recipe which renders pdf from html using electron**
 
+![demo](demo.gif)
+
 Adds recipe `electron-pdf` to jsreport, which render pdf from html using electron.
 
 `electron-pdf` recipe is capable of rendering any html and javascript you provide. This means you can also use external javascript libraries or canvas to print visual charts.
