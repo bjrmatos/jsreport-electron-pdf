@@ -11,6 +11,10 @@ Adds recipe `electron-pdf` to jsreport, which render pdf from html using electro
 
 `electron-pdf` recipe is capable of rendering any html and javascript you provide. This means you can also use external javascript libraries or canvas to print visual charts.
 
+## Requeriments
+
+- Install [electron](http://electron.atom.io/) > 0.35.x, the easy way to install electron in your app is `npm install electron-prebuilt --save`
+
 ## jsreport-core
 
 If you use `jsreport-core`, you can apply this extension manually and [pass configuration](#configuration) to it directly:
@@ -69,7 +73,7 @@ Available settings for pdf generation:
 
 ## Page breaks
 
-Css contains styles like `page-break-before` you can use to specify html page breaks. This can be used as well with `electron-pdf to specify page breaks inside pdf files.
+Css contains styles like `page-break-before` you can use to specify html page breaks. This can be used as well with `electron-pdf` to specify page breaks inside pdf files.
 
 ```html
 <h1>Hello from Page 1</h1>
