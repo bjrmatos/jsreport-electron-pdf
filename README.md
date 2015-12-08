@@ -105,9 +105,6 @@ You may need to postpone pdf printing until some javascript async tasks are proc
 ## Twitter Bootstrap
 Using a responsive css framework for printing pdf may not be the best idea. However it still works. Only thing you need to keep in mind is that output pdf typically won't look the same as html because bootstrap includes different printing styles under `@media print`.
 
+## Troubleshooting
 
-
-
-
-
-
+See [`electron-html-to`](https://github.com/bjrmatos/electron-html-to#troubleshooting)
