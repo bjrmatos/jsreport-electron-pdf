@@ -108,3 +108,6 @@ Using a responsive css framework for printing pdf may not be the best idea. Howe
 ## Troubleshooting
 
 See [`electron-html-to`](https://github.com/bjrmatos/electron-html-to#troubleshooting)
+
+## License
+See [license](https://github.com/bjrmatos/jsreport-electron-pdf/blob/master/LICENSE)
