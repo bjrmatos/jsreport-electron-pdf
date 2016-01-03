@@ -14,7 +14,11 @@ function($, app, Marionette, Backbone, TemplateView, Model) {
         model.setTemplate(contextObj.template);
         view = new TemplateView({ model: model });
 
-        contextObj.extensionsRegion.show(view, 'electron');
+        //wait until phantom-pdf or potentially other view unbinds from extensions menu
+        //otherwise binding electron.width won't apply because phantom.width is still taking place
+        setTimeout(function() {
+          contextObj.extensionsRegion.show(view, 'electron');
+        }, 0);
       } else {
         if (view != null) {
           $(view.el).remove();
