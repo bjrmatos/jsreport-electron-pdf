@@ -21,7 +21,7 @@ If you use `jsreport-core`, you can apply this extension manually and [pass conf
 
 ```js
 var jsreport = require('jsreport-core')();
-jsreport.use(require('jsreport-electron-pdf')({ strategy: 'electron-server' }));
+jsreport.use(require('jsreport-electron-pdf')({ strategy: 'electron-ipc' }));
 ```
 
 ## Configuration
@@ -36,8 +36,8 @@ electron: {
     dedicated-process strategy is quite slower but can solve some bugs 
     with corporate proxy, set to 'electron-server' for maximum performance. 
 
-    possible values: 'dedicated-process' or 'electron-server', defaults to 'dedicated-process' */
-  strategy: 'electron-server',
+    possible values: 'dedicated-process', 'electron-ipc' or 'electron-server', defaults to 'dedicated-process' */
+  strategy: 'electron-ipc',
   /* number of allocated electron processes (when using electron-server strategy) */
   numberOfWorkers: 2,
   /* timeout in ms for pdf generation, when the timeout is reached, the conversion is cancelled */
