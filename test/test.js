@@ -2,6 +2,7 @@
 import path from 'path';
 import jsreport from 'jsreport-core';
 
+/* eslint-disable prefer-arrow-callback */
 describe('electron pdf', function() {
   let reporter;
 

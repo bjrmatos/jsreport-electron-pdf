@@ -48,13 +48,16 @@ export default function(conversion, request, response) {
         landscape: parseBoolean(options.landscape, false)
       }
     }).then((result) => {
+      /* eslint-disable no-param-reassign */
       response.headers['Content-Type'] = 'application/pdf';
       response.headers['Content-Disposition'] = 'inline; filename="report.pdf"';
       response.headers['File-Extension'] = 'pdf';
       response.headers['Number-Of-Pages'] = result.numberOfPages;
+      /* eslint-enable no-param-reassign */
 
       return toArray(result.stream);
     }).then((arr) => {
+      // eslint-disable-next-line no-param-reassign
       response.content = Buffer.concat(arr);
     }));
   });

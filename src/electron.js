@@ -20,10 +20,10 @@ class Electron {
       tmpDir
     };
 
+    let shouldAccessLocalFiles;
+
     // filter undefined options
-    convertOptions = pick(convertOptions, (val) => {
-      return val !== undefined;
-    });
+    convertOptions = pick(convertOptions, (val) => val !== undefined);
 
     this.reporter = reporter;
 
@@ -49,24 +49,31 @@ class Electron {
     });
 
     if (reporter.documentStore.model.entityTypes.TemplateType) {
+      // eslint-disable-next-line no-param-reassign
       reporter.documentStore.model.entityTypes.TemplateType.electron = {
         type: 'jsreport.ElectronType'
       };
     }
 
+    shouldAccessLocalFiles = definition.options.hasOwnProperty('allowLocalFilesAccess') ?
+                              definition.options.allowLocalFilesAccess : false;
+
     if (!reporter.__electron_html_to__) {
+      // eslint-disable-next-line no-param-reassign
       reporter.__electron_html_to__ = Promises.promisify(electronConvert({
         ...convertOptions,
-        allowLocalFilesAccess: definition.options.hasOwnProperty('allowLocalFilesAccess') ? definition.options.allowLocalFilesAccess : false
+        allowLocalFilesAccess: shouldAccessLocalFiles
       }));
     }
   }
 
   execute(request, response) {
+    // eslint-disable-next-line no-param-reassign
     request.template.electron = request.template.electron || {};
 
     this.reporter.logger.debug('Electron Pdf recipe start.');
 
+    // eslint-disable-next-line no-param-reassign
     request.template.recipe = 'html';
 
     return recipe(this.reporter.__electron_html_to__, request, response);
@@ -75,11 +82,15 @@ class Electron {
 
 export default function(reporter, definition) {
   if (!Object.keys(definition.options).length) {
+    // eslint-disable-next-line no-param-reassign
     definition.options = reporter.options.electron || {};
   }
 
+  // eslint-disable-next-line no-param-reassign
   definition.options.strategy = definition.options.strategy || 'dedicated-process';
+  // eslint-disable-next-line no-param-reassign
   definition.options.tmpDir = reporter.options.tempDirectory;
 
+  // eslint-disable-next-line no-param-reassign
   reporter[definition.name] = new Electron(reporter, definition);
 }
