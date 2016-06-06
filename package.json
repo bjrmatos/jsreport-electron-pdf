@@ -38,13 +38,13 @@
     "babel": "5.8.34",
     "eslint": "1.10.3",
     "eslint-config-airbnb": "2.0.0",
-    "jsreport-core": "*",
-    "jsreport-express": "*",
-    "jsreport-templates": "*",
-    "mocha": "2.3.4",
+    "jsreport-core": "0.6.4",
+    "jsreport-express": "0.3.2",
+    "jsreport-templates": "0.3.0",
+    "mocha": "2.5.3",
     "npm-run-all": "1.2.13",
-    "requirejs": "2.1.22",
-    "rimraf": "2.4.4",
+    "requirejs": "2.2.0",
+    "rimraf": "2.5.2",
     "should": "7.1.1"
   }
 }
