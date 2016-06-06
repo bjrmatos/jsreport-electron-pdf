@@ -38,6 +38,7 @@
     "babel": "5.8.34",
     "eslint": "1.10.3",
     "eslint-config-airbnb": "2.0.0",
+    "electron-prebuilt": "1.2.1",
     "jsreport-core": "0.6.4",
     "jsreport-express": "0.3.2",
     "jsreport-templates": "0.3.0",
