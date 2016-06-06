@@ -31,7 +31,7 @@
   "dependencies": {
     "bluebird": "3.4.0",
     "electron-html-to": "2.1.1",
-    "lodash.pick": "3.1.0",
+    "lodash.pick": "4.2.1",
     "stream-to-array": "2.3.0"
   },
   "devDependencies": {
@@ -42,9 +42,9 @@
     "jsreport-express": "0.3.2",
     "jsreport-templates": "0.3.0",
     "mocha": "2.5.3",
-    "npm-run-all": "1.2.13",
+    "npm-run-all": "2.1.1",
     "requirejs": "2.2.0",
     "rimraf": "2.5.2",
-    "should": "7.1.1"
+    "should": "9.0.0"
   }
 }
