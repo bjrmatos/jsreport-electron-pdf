@@ -11,7 +11,7 @@
     "install-electron-prebuilt": "npm install electron-prebuilt@0.35.x",
     "pretest": "npm-run-all build",
     "test": "mocha test/test.js --timeout 7000 --compilers js:babel-register",
-    "prepublish": "in-publish && jsreport-studio-build || not-in-publish && npm-run-all lint clean build"
+    "prepublish": "in-publish && npm-run-all lint clean build build-studio || not-in-publish"
   },
   "author": {
     "name": "BJR Matos",
