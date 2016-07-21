@@ -26,3 +26,30 @@ describe('electron pdf', function() {
     }).catch(done);
   });
 });
+
+describe('electron pdf with timeout', function() {
+  let reporter;
+
+  beforeEach((done) => {
+    reporter = new jsreport.Reporter({
+      rootDirectory: path.join(__dirname, '../'),
+      electron: {
+        timeout: 1
+      }
+    });
+
+    reporter.init().then(function() {
+      done();
+    }).catch(done);
+  });
+
+  it('should fail', function(done) {
+    const request = {
+      template: { content: 'Heyx', recipe: 'electron-pdf', engine: 'none' }
+    };
+
+    reporter.render(request, {}).then(() => {
+      done(new Error('Should have failed'));
+    }).catch(() => done());
+  });
+});

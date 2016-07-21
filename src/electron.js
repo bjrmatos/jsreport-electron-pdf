@@ -1,6 +1,6 @@
 
 import Promises from 'bluebird';
-import pick from 'lodash.pick';
+import pickBy from 'lodash.pickby';
 import electronConvert from 'electron-html-to';
 import recipe from './recipe';
 
@@ -23,7 +23,7 @@ class Electron {
     let shouldAccessLocalFiles;
 
     // filter undefined options
-    convertOptions = pick(convertOptions, (val) => val !== undefined);
+    convertOptions = pickBy(convertOptions, (val) => val !== undefined);
 
     this.reporter = reporter;
 
