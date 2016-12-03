@@ -30,12 +30,12 @@ export default class Properties extends Component {
         <div className="form-group"><label>Web Page width</label>
           <input
             type="text" placeholder="600" value={electron.width || ''}
-            onChange={(v) => electron({width: v.target.value})} />
+            onChange={(v) => change({width: v.target.value})} />
         </div>
         <div className="form-group"><label>Web Page height</label>
           <input
             type="text" placeholder="600" value={electron.height || ''}
-            onChange={(v) => electron({height: v.target.value})} />
+            onChange={(v) => change({height: v.target.value})} />
         </div>
         <div className="form-group"><label>Orientation</label>
           <select value={electron.landscape + ""} onChange={(v) => change({landscape: v.target.value === 'true'})}>
