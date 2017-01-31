@@ -73,9 +73,6 @@ class Electron {
 
     this.reporter.logger.debug('Electron Pdf recipe start.');
 
-    // eslint-disable-next-line no-param-reassign
-    request.template.recipe = 'html';
-
     return recipe(this.reporter.__electron_html_to__, request, response);
   }
 }
