@@ -10,14 +10,16 @@ class Electron {
       strategy,
       numberOfWorkers,
       timeout,
-      tmpDir
+      tmpDir,
+      maxLogEntrySize
     } = definition.options;
 
     let convertOptions = {
       strategy,
       numberOfWorkers,
       timeout,
-      tmpDir
+      tmpDir,
+      maxLogEntrySize
     };
 
     let shouldAccessLocalFiles;

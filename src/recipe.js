@@ -55,6 +55,12 @@ export default function(conversion, request, response) {
       response.headers['Number-Of-Pages'] = result.numberOfPages;
       /* eslint-enable no-param-reassign */
 
+      if (Array.isArray(result.logs)) {
+        result.logs.forEach((msg) => {
+          request.logger[msg.level](msg.message, { timestamp: msg.timestamp });
+        });
+      }
+
       return toArray(result.stream);
     }).then((arr) => {
       // eslint-disable-next-line no-param-reassign
