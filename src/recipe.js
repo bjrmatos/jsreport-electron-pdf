@@ -24,7 +24,8 @@ function parseBoolean(param, defaultValue) {
 export default function(conversion, request, response) {
   // TODO: add support for header and footer html when electron support printing header/footer
   return new Promises((resolve) => {
-    let options = request.template.electron;
+    let options = request.template.electron,
+        numberOfPages;
 
     return resolve(conversion({
       html: response.content,
@@ -48,11 +49,13 @@ export default function(conversion, request, response) {
         landscape: parseBoolean(options.landscape, false)
       }
     }).then((result) => {
+      numberOfPages = result.numberOfPages;
+
       /* eslint-disable no-param-reassign */
       response.headers['Content-Type'] = 'application/pdf';
       response.headers['Content-Disposition'] = 'inline; filename="report.pdf"';
       response.headers['File-Extension'] = 'pdf';
-      response.headers['Number-Of-Pages'] = result.numberOfPages;
+      response.headers['Number-Of-Pages'] = numberOfPages;
       /* eslint-enable no-param-reassign */
 
       if (Array.isArray(result.logs)) {
@@ -66,7 +69,7 @@ export default function(conversion, request, response) {
       // eslint-disable-next-line no-param-reassign
       response.content = Buffer.concat(arr);
 
-      request.logger.debug(`electron-pdf recipe finished with ${response.numberOfPages} pages generated`);
+      request.logger.debug(`electron-pdf recipe finished with ${numberOfPages} pages generated`);
     }));
   });
 }
