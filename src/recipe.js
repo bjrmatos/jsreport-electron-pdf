@@ -65,6 +65,8 @@ export default function(conversion, request, response) {
     }).then((arr) => {
       // eslint-disable-next-line no-param-reassign
       response.content = Buffer.concat(arr);
+
+      request.logger.debug(`electron-pdf recipe finished with ${response.numberOfPages} pages generated`);
     }));
   });
 }
