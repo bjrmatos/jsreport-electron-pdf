@@ -14,7 +14,7 @@ Adds recipe `electron-pdf` to jsreport, which render pdf from html using electro
 Requeriments
 ------------
 
-Install [electron](http://electron.atom.io/) >= 0.35.x including electron@1, the easy way to install
+Install [electron](http://electron.atom.io/) >= 0.36.1 including electron@1, the easy way to install
 electron in your app is `npm install electron --save` or `npm install electron-prebuilt --save`
 
 jsreport-core
@@ -47,14 +47,16 @@ electron: {
   /* timeout in ms for pdf generation, when the timeout is reached, the conversion is cancelled */
   timeout: 5000,
   /* set to true to allow requests using the file protocol (file:///). defaults to false */
-  allowLocalFilesAccess: false
+  allowLocalFilesAccess: false,
+  /* the collected console.log, console.error, console.warn messages are trimmed by default */
+  maxLogEntrySize: 1000
 }
 ```
 
 Settings
 --------
 
-`electron-pdf` recipe uses [electron's printToPDF feature](http://electron.atom.io/docs/v0.35.0/api/web-contents/#webcontents-printtopdf-options-callback) to generate PDF from a web page, so basically most options are the same as electron's `printoToPDF` options.
+`electron-pdf` recipe uses [electron's printToPDF feature](http://electron.atom.io/docs/v0.36.1/api/web-contents/#webcontents-printtopdf-options-callback) to generate PDF from a web page, so basically most options are the same as electron's `printoToPDF` options.
 
 Available settings for pdf generation:
 
