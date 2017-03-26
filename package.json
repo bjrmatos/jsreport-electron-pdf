@@ -1,6 +1,6 @@
 {
   "name": "jsreport-electron-pdf",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "description": "jsreport recipe which renders pdf from html using electron",
   "main": "lib/index.js",
   "scripts": {
