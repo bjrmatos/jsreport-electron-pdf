@@ -21,11 +21,15 @@ function parseBoolean(param, defaultValue) {
   return defaultValue;
 }
 
-function parseIfJSON(str) {
+function parseIfJSON(val) {
+  if (typeof val === 'object') {
+    return val;
+  }
+
   try {
-    return JSON.parse(str);
-  } catch(e) {
-    return str;
+    return JSON.parse(val);
+  } catch (e) {
+    return val;
   }
 }
 

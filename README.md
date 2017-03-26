@@ -65,13 +65,13 @@ Available settings for pdf generation:
 	-	`1` - none
 	-	`2` - minimum
 -	`landscape` Boolean - `true` for landscape, `false` for portrait.
--	`format` String - page size.
+-	`format` String - predefined page sizes or Object - { width, height } in microns.
 	-	`A4`
 	-	`A3`
 	-	`Legal`
 	-	`Letter`
 	-	`Tabloid`
-	- `JSON Object String. Keys: width, height. Values: integer in microns (1/1000mm)`
+	- `Object|JSON Object String. Keys: width, height. Values: integer in microns (1/1000mm)`
 		- e.g. A5: `"{ 'width': 148000, 'height': 210000 }"`
 -	`printBackground` Boolean - whether to print CSS backgrounds or not.
 -	`width` Number - width (`px`) of the web page (`BrowserWindow`) that would be used to generate the PDF.
