@@ -126,7 +126,12 @@ Using a responsive css framework for printing pdf may not be the best idea. Howe
 Troubleshooting
 ---------------
 
-See [`electron-html-to`](https://github.com/bjrmatos/electron-html-to#troubleshooting)
+#### Using electron in single core machines
+
+If you are using a machine with a single-core processor you will probably experience a high CPU usage when doing any rendering (97% in most cases and the usage is worse when using Windows), this is because a limitation in electron when it is being used on single core machines, unfortunately the only way to overcome this is to upgrade your machine to a processor with more cores (a processor with two cores is fine).
+more info: [issue1](https://github.com/Microsoft/vscode/issues/17097), [issue2](https://github.com/Microsoft/vscode/issues/22724)
+
+See [`electron-html-to` for more troubleshooting](https://github.com/bjrmatos/electron-html-to#troubleshooting)
 
 License
 -------
