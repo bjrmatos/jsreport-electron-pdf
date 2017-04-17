@@ -38,3 +38,9 @@ studio/main.js
 studio/main.js.map
 
 .idea
+
+# jsreport files and config
+data
+logs
+dev.config.json
+prod.config.json
