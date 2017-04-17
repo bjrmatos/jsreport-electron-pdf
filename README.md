@@ -71,7 +71,7 @@ Available settings for pdf generation:
 	-	`Legal`
 	-	`Letter`
 	-	`Tabloid`
-	- `Object|JSON Object String. Keys: width, height. Values: integer in microns (1/1000mm)`
+	- `Object|JSON Object String. Keys: width, height. Values: integer in microns (micrometers) (1/1000mm)`
 		- e.g. A5: `"{ 'width': 148000, 'height': 210000 }"`
 -	`printBackground` Boolean - whether to print CSS backgrounds or not.
 -	`width` Number - width (`px`) of the web page (`BrowserWindow`) that would be used to generate the PDF.
