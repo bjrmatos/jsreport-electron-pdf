@@ -4,6 +4,8 @@
   "description": "jsreport recipe which renders pdf from html using electron",
   "main": "lib/index.js",
   "scripts": {
+    "start": "jsreport-studio-start --httpPort 5488",
+    "run": "npm run build && npm run build-studio && jsreport-studio-start --httPort 5488 --run-only",
     "clean": "rimraf lib",
     "build": "babel src --out-dir lib",
     "build-studio": "jsreport-studio-build",
