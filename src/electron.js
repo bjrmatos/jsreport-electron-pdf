@@ -9,16 +9,26 @@ class Electron {
     let {
       strategy,
       numberOfWorkers,
+      pingTimeout,
       timeout,
       tmpDir,
+      portLeftBoundary,
+      portRightBoundary,
+      host,
+      chromeCommandLineSwitches,
       maxLogEntrySize
     } = definition.options;
 
     let convertOptions = {
       strategy,
       numberOfWorkers,
+      pingTimeout,
       timeout,
       tmpDir,
+      portLeftBoundary,
+      portRightBoundary,
+      host,
+      chromeCommandLineSwitches,
       maxLogEntrySize
     };
 

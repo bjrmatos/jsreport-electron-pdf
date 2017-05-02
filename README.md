@@ -44,8 +44,19 @@ electron: {
   strategy: 'electron-ipc',
   /* number of allocated electron processes (when using electron-server strategy) */
   numberOfWorkers: 2,
+  /* time in ms to wait for worker ping response in order to be considered alive when using `electron-server` or `electron-ipc` strategy */
+  pingTimeout: 100,
   /* timeout in ms for pdf generation, when the timeout is reached, the conversion is cancelled */
   timeout: 5000,
+  /* optional port range where to start electron server (when using electron-server strategy) */
+  portLeftBoundary: 1000,
+  portRightBoundary: 2000,
+  /* optional hostname where to start electron server when using electron-server strategy) */
+  host: '127.0.0.1',
+  /* optional chrome command line switches for electron process, see https://electron.atom.io/docs/api/chrome-command-line-switches/ for details. */
+  chromeComandLineSwitches: {
+    'disable-http-cache': null
+  },
   /* set to true to allow requests using the file protocol (file:///). defaults to false */
   allowLocalFilesAccess: false,
   /* the collected console.log, console.error, console.warn messages are trimmed by default */
