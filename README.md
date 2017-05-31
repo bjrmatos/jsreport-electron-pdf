@@ -11,11 +11,13 @@ Adds recipe `electron-pdf` to jsreport, which render pdf from html using electro
 
 `electron-pdf` recipe is capable of rendering any html and javascript you provide. This means you can also use external javascript libraries or canvas to print visual charts.
 
-Requeriments
+Installation
 ------------
 
-Install [electron](http://electron.atom.io/) >= 0.36.1 including electron@1, the easy way to install
-electron in your app is `npm install electron --save` or `npm install electron-prebuilt --save`
+> npm install jsreport-electron-pdf --save    
+> npm install electron --save
+
+Linux servers requires to run jsreport with this recipe through xvfb. You can find an example how to do it [here](https://github.com/jsreport/jsreport/blob/master/docker/full/run.sh#L36). Note that `electron-pdf` is also included in the [jsreport full docker image](https://hub.docker.com/r/jsreport/jsreport/) which can simplify the installation on linux targets.
 
 jsreport-core
 -------------
