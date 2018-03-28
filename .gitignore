@@ -34,9 +34,6 @@ bower_components
 # compiled es5 code
 lib
 
-studio/main.js
-studio/main.js.map
-
 .idea
 
 # jsreport files and config
