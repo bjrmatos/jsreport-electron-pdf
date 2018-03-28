@@ -85,20 +85,18 @@ class Electron {
 
     this.reporter.logger.debug('Electron Pdf recipe start.');
 
-    return recipe(this.reporter.__electron_html_to__, request, response);
+    return recipe(this.reporter, this.reporter.__electron_html_to__, request, response);
   }
 }
 
 export default function(reporter, definition) {
-  if (!Object.keys(definition.options).length) {
-    // eslint-disable-next-line no-param-reassign
-    definition.options = reporter.options.electron || {};
-  }
+  // eslint-disable-next-line no-param-reassign
+  definition.options = Object.assign({}, reporter.options.electron, definition.options);
 
   // eslint-disable-next-line no-param-reassign
   definition.options.strategy = definition.options.strategy || 'dedicated-process';
   // eslint-disable-next-line no-param-reassign
-  definition.options.tmpDir = reporter.options.tempDirectory;
+  definition.options.tmpDir = reporter.options.tempAutoCleanupDirectory;
 
   // eslint-disable-next-line no-param-reassign
   reporter[definition.name] = new Electron(reporter, definition);

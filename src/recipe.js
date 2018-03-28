@@ -33,7 +33,7 @@ function parseIfJSON(val) {
   }
 }
 
-export default function(conversion, request, response) {
+export default function(reporter, conversion, request, response) {
   // TODO: add support for header and footer html when electron support printing header/footer
   return new Promises((resolve) => {
     let options = request.template.electron,
@@ -64,15 +64,14 @@ export default function(conversion, request, response) {
       numberOfPages = result.numberOfPages;
 
       /* eslint-disable no-param-reassign */
-      response.headers['Content-Type'] = 'application/pdf';
-      response.headers['Content-Disposition'] = 'inline; filename="report.pdf"';
-      response.headers['File-Extension'] = 'pdf';
-      response.headers['Number-Of-Pages'] = numberOfPages;
+      response.meta.contentType = 'application/pdf';
+      response.meta.fileExtension = 'pdf';
+      response.meta.numberOfPages = numberOfPages;
       /* eslint-enable no-param-reassign */
 
       if (Array.isArray(result.logs)) {
         result.logs.forEach((msg) => {
-          request.logger[msg.level](msg.message, { timestamp: msg.timestamp });
+          reporter.logger[msg.level](msg.message, { timestamp: msg.timestamp.getTime(), ...request });
         });
       }
 
@@ -81,7 +80,7 @@ export default function(conversion, request, response) {
       // eslint-disable-next-line no-param-reassign
       response.content = Buffer.concat(arr);
 
-      request.logger.debug(`electron-pdf recipe finished with ${numberOfPages} pages generated`);
+      reporter.logger.debug(`electron-pdf recipe finished with ${numberOfPages} pages generated`, request);
     }));
   });
 }
