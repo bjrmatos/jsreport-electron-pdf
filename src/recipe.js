@@ -3,24 +3,6 @@ import Promises from 'bluebird';
 import toArray from 'stream-to-array';
 import electronConvert from 'electron-html-to';
 
-function numberOrUndefined(param) {
-  if (!isNaN(param)) {
-    return Number(param);
-  }
-
-  return undefined;
-}
-
-function parseBoolean(param, defaultValue) {
-  if (param === true || param === 'true') {
-    return true;
-  } else if (param === false || param === 'false') {
-    return false;
-  }
-
-  return defaultValue;
-}
-
 function parseIfJSON(val) {
   if (typeof val === 'object') {
     return val;
@@ -41,24 +23,24 @@ export default function(reporter, conversion, request, response) {
 
     return resolve(conversion({
       html: response.content,
-      delay: numberOrUndefined(options.printDelay),
-      waitForJS: parseBoolean(options.waitForJS, false),
+      delay: options.printDelay,
+      waitForJS: options.waitForJS != null ? options.waitForJS : false,
       waitForJSVarName: 'JSREPORT_READY_TO_START',
       converterPath: electronConvert.converters.PDF,
 
       browserWindow: {
-        width: numberOrUndefined(options.width),
-        height: numberOrUndefined(options.height),
+        width: options.width,
+        height: options.height,
         webPreferences: {
-          javascript: !parseBoolean(options.blockJavaScript, false)
+          javascript: !(options.blockJavaScript != null ? options.blockJavaScript : false)
         }
       },
 
       pdf: {
-        marginsType: numberOrUndefined(options.marginsType),
+        marginsType: options.marginsType,
         pageSize: parseIfJSON(options.format),
-        printBackground: parseBoolean(options.printBackground, true),
-        landscape: parseBoolean(options.landscape, false)
+        printBackground: options.printBackground != null ? options.printBackground : true,
+        landscape: options.landscape != null ? options.landscape : false
       }
     }).then((result) => {
       numberOfPages = result.numberOfPages;
