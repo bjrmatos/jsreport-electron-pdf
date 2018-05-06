@@ -21,7 +21,7 @@ describe('electron pdf', function() {
       template: { content: 'Heyx', recipe: 'electron-pdf', engine: 'none' }
     };
 
-    reporter.render(request, {}).then(() => {
+    reporter.render(request).then(() => {
       done();
     }).catch(done);
   });
@@ -48,7 +48,7 @@ describe('electron pdf with timeout', function() {
       template: { content: 'Heyx', recipe: 'electron-pdf', engine: 'none' }
     };
 
-    reporter.render(request, {}).then(() => {
+    reporter.render(request).then(() => {
       done(new Error('Should have failed'));
     }).catch(() => done());
   });
