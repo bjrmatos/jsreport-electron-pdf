@@ -32,9 +32,13 @@ bower_components
 .sass-cache
 
 # compiled es5 code
-# lib
+lib
 
 .idea
+
+# studio build
+studio/main.js
+studio/main.js.map
 
 # jsreport files and config
 data
