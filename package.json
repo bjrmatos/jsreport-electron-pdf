@@ -50,7 +50,7 @@
     "eslint-config-airbnb-base": "3.0.1",
     "eslint-plugin-import": "1.8.1",
     "in-publish": "2.0.0",
-    "jsreport-core": "github:jsreport/jsreport-core#2.0.0-beta",
+    "jsreport-core": "2.0.1",
     "jsreport-studio-dev": "1.1.2",
     "mocha": "5.0.5",
     "npm-run-all": "2.1.1",
