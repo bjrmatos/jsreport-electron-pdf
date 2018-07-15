@@ -38,7 +38,7 @@ Available options:
 
 ```js
 "extensions": {
-  "electron": {
+  "electron-pdf": {
     /* use rather dedicated process for every generation,
       dedicated-process strategy is quite slower but can solve some bugs
       with corporate proxy, set to 'electron-server' for maximum performance.
