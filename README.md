@@ -32,7 +32,7 @@ jsreport.use(require('jsreport-electron-pdf')({ strategy: 'electron-ipc' }));
 Configuration
 -------------
 
-Use `electron` key in the standard [jsreport config](https://github.com/jsreport/jsreport/blob/master/config.md) file.
+Use `electron-pdf` key in the standard [jsreport config](https://github.com/jsreport/jsreport/blob/master/config.md) file.
 
 Available options:
 
