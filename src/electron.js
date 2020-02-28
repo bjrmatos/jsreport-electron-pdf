@@ -101,6 +101,23 @@ export default function(reporter, definition) {
   // eslint-disable-next-line no-param-reassign
   definition.options.tmpDir = reporter.options.tempAutoCleanupDirectory;
 
+  let timeoutProp;
+
+  if (definition.options.timeout != null) {
+    if (reporter.options.electron && reporter.options.electron.timeout != null) {
+      timeoutProp = 'electron.timeout';
+    } else {
+      timeoutProp = 'extensions.electron-pdf.timeout';
+    }
+  }
+
+  if (definition.options.timeout != null && reporter.options.reportTimeout != null) {
+    reporter.logger.warn(`"${timeoutProp}" configuration is ignored when "reportTimeout" is set`);
+  } else if (definition.options.timeout != null) {
+    // eslint-disable-next-line max-len
+    reporter.logger.warn(`"${timeoutProp}" configuration is deprecated and will be removed in the future, please use "reportTimeout" instead`);
+  }
+
   // eslint-disable-next-line no-param-reassign
   reporter[definition.name] = new Electron(reporter, definition);
 }
