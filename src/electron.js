@@ -38,6 +38,7 @@ class Electron {
     convertOptions = pickBy(convertOptions, (val) => val !== undefined);
 
     this.reporter = reporter;
+    this.definition = definition;
 
     reporter.extensionsManager.recipes.push({
       name: 'electron-pdf',
@@ -82,6 +83,8 @@ class Electron {
   execute(request, response) {
     // eslint-disable-next-line no-param-reassign
     request.template.electron = request.template.electron || {};
+    // eslint-disable-next-line no-param-reassign
+    request.template.electron.timeout = this.reporter.getAvailableRenderTimeout(request, this.definition.options.timeout);
 
     this.reporter.logger.debug('Electron Pdf recipe start.');
 

@@ -24,6 +24,7 @@ export default function(reporter, conversion, request, response) {
     return resolve(conversion({
       html: response.content,
       delay: options.printDelay,
+      timeout: options.timeout,
       waitForJS: options.waitForJS != null ? options.waitForJS : false,
       waitForJSVarName: 'JSREPORT_READY_TO_START',
       converterPath: electronConvert.converters.PDF,
