@@ -1,6 +1,6 @@
 {
   "name": "jsreport-electron-pdf",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "jsreport recipe which renders pdf from html using electron",
   "main": "lib/index.js",
   "scripts": {
@@ -50,7 +50,7 @@
     "eslint-config-airbnb-base": "3.0.1",
     "eslint-plugin-import": "1.8.1",
     "in-publish": "2.0.0",
-    "jsreport-core": "2.7.1",
+    "jsreport-core": "2.7.2",
     "jsreport-studio-dev": "1.5.0",
     "mocha": "5.2.0",
     "npm-run-all": "2.1.1",
