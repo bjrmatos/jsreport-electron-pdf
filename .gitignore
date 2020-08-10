@@ -37,8 +37,8 @@ lib
 .idea
 
 # studio build
-studio/main.js
-studio/main.js.map
+# studio/main.js
+# studio/main.js.map
 
 # jsreport files and config
 data

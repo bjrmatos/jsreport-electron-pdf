@@ -32,15 +32,15 @@ export default class Properties extends Component {
     }]
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.normalizeUIState(this.props.entity)
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentDidUpdate (prevProps) {
     // when component changes because another entity is selected
     // or when saving a new entity
-    if (this.props.entity._id !== nextProps.entity._id) {
-      this.normalizeUIState(nextProps.entity)
+    if (prevProps.entity._id !== this.props.entity._id) {
+      this.normalizeUIState(this.props.entity)
     }
   }
 

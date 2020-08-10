@@ -1,10 +1,11 @@
 
-import Properties from './Properties.js';
+import ElectronPdfProperties from './ElectronPdfProperties.js';
+// eslint-disable-next-line import/no-unresolved
 import Studio from 'jsreport-studio';
 
 Studio.addPropertiesComponent(
   'electron-pdf',
-  Properties,
+  ElectronPdfProperties,
   (entity) => entity.__entitySet === 'templates' && entity.recipe === 'electron-pdf'
 );
 
