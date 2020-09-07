@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Studio from 'jsreport-studio';
 
-export default class Properties extends Component {
+class ElectronPdfProperties extends Component {
   constructor(props) {
     super(props);
 
@@ -241,3 +241,5 @@ export default class Properties extends Component {
     )
   }
 }
+
+export default ElectronPdfProperties

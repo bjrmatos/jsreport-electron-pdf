@@ -159,13 +159,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Properties = function (_Component) {
-  _inherits(Properties, _Component);
+var ElectronPdfProperties = function (_Component) {
+  _inherits(ElectronPdfProperties, _Component);
 
-  function Properties(props) {
-    _classCallCheck(this, Properties);
+  function ElectronPdfProperties(props) {
+    _classCallCheck(this, ElectronPdfProperties);
 
-    var _this = _possibleConstructorReturn(this, (Properties.__proto__ || Object.getPrototypeOf(Properties)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ElectronPdfProperties.__proto__ || Object.getPrototypeOf(ElectronPdfProperties)).call(this, props));
 
     _this.state = {
       customPaperFormat: false,
@@ -175,7 +175,7 @@ var Properties = function (_Component) {
     return _this;
   }
 
-  _createClass(Properties, [{
+  _createClass(ElectronPdfProperties, [{
     key: 'getStandardFormats',
     value: function getStandardFormats() {
       return [{
@@ -568,10 +568,10 @@ var Properties = function (_Component) {
     }
   }]);
 
-  return Properties;
+  return ElectronPdfProperties;
 }(_react.Component);
 
-exports.default = Properties;
+exports.default = ElectronPdfProperties;
 
 /***/ }),
 /* 3 */
